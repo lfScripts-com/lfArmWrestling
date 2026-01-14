@@ -1,12 +1,22 @@
-fx_version 'bodacious'
-game {'gta5'}
+fx_version 'cerulean'
+lua54 'yes'
+game 'gta5'
+author 'LFScripts, Laugh'
+version '1.0.0'
+
+shared_scripts {
+    '@es_extended/imports.lua',
+    'config.lua'
+}
 
 client_scripts {
-    'config.lua',
-    'client/main.lua'
+    '@es_extended/locale.lua',
+    'locales/*.lua',
+    'client/*.lua'
 }
 
 server_scripts {
-    'config.lua',
-    'server/main.lua'
+    '@es_extended/locale.lua',
+    'locales/*.lua',
+    'server/*.lua'
 }

@@ -1,77 +1,42 @@
---========================================================================================================================================================================-
---========================================================================================================================================================================-
---=========================================                                                                                      =========================================-                         
---=========================================                                                                                      =========================================-
---=========================================                                                                                      =========================================-
---========================================================================================================================================================================-
---========================================================================================================================================================================-
+Config = {}
 
+-- ============================================
+-- CONFIGURATION GÉNÉRALE
+-- ============================================
 
+Config.Locale = 'fr' -- Langue par défaut (fr, en)
 
-globalConfig = {
+-- ============================================
+-- INTERACTIONS
+-- ============================================
 
-  language = 'en', --change with 'en' for english, 'fr' for french, 'cz' for czech, 'de' for german
+Config.useLfInteract = true -- true pour utiliser LfInteract, false pour utiliser le helptext classique
 
-
-
-
-      --Set up new line to add a table, xyz are the coordinate, model is the props used as table. The 3 tables for armwrestling are 
-
-                                                    -- 'prop_arm_wrestle_01' --
-                                              -- 'bkr_prop_clubhouse_arm_wrestle_01a' --
-                                              -- 'bkr_prop_clubhouse_arm_wrestle_02a' --
-
-  props = { 
-    
-
-
-    {x = 0, y = 0, z = 0, model = 'prop_arm_wrestle_01'},
-    {x = 0, y =0, z = 0, model = 'bkr_prop_clubhouse_arm_wrestle_01a'},
-    {x = 0, y = 0, z = 0, model = 'bkr_prop_clubhouse_arm_wrestle_02a'},
-
-
-  },
-
-  showBlipOnMap = false, -- Set to true to show blip for each table
-
-  blip = { --Blip info
-
-    title="Arm wrestle",  
-    colour=0, -- 
-    id=1 
-
-  }
-
+-- Configuration LfInteract (si useLfInteract = true)
+Config.lfInteract = {
+    distance = 5.0,      -- Distance de détection du point d'interaction
+    interactDst = 2.5    -- Distance pour activer l'interaction
 }
 
-text = { 
-  ['en'] = {
-    ['win'] = "You win !",
-    ['lose'] = "You lost",
-    ['full'] = "A wrestling match is already in progress",
-    ['tuto'] = "To win, quickly press ",
-    ['wait'] = "Waiting for an opponent",
-  },
-  ['fr'] = {
-    ['win'] = "Vous avez gagné !",
-    ['lose'] = "Vous avez perdu",
-    ['full'] = "Un bras de fer est déjà en cours",
-    ['tuto'] = "Pour gagner, appuyez rapidement sur ",
-    ['wait'] = "En attente d'un adversaire",
-  },
-  ['cz'] = {
-    ['win'] = "Vyhrál jsi !",
-    ['lose'] = "Prohrál jsi",
-    ['full'] = "Zápasový zápas již probíhá",
-    ['tuto'] = "Chcete-li vyhrát, rychle stiskněte ",
-    ['wait'] = "Čekání na protivníka",
-  },
-  ['de'] = {
-    ['win'] = "Du hast gewinnen !",
-    ['lose'] = "Du hast verloren",
-    ['full'] = "Ein Wrestling Match ist bereits im Gange",
-    ['tuto'] = "Um zu gewinnen, drücken Sie schnell ",
-    ['wait'] = "Warten auf einen Gegner",
-  },
+-- ============================================
+-- TABLES DE BRAS DE FER
+-- ============================================
+-- Liste de tous les modèles de tables de bras de fer supportés
+Config.ArmWrestleModels = {
+    'prop_arm_wrestle_01',
+    'bkr_prop_clubhouse_arm_wrestle_01a',
+    'bkr_prop_clubhouse_arm_wrestle_02a',
+}
 
+-- Tables fixes à créer automatiquement (optionnel)
+-- Laissez vide si vous voulez uniquement utiliser les tables placées manuellement via lfPropsPlacer
+
+Config.Props = {
+    {x = -186.22, y = 6220.68, z = 31.49, model = 'prop_arm_wrestle_01'},
+    {x = -189.89, y = 6225.55, z = 31.49, model = 'prop_arm_wrestle_01'},
+    {x = 1435.95, y = 6355.04, z = 23.99, model = 'prop_arm_wrestle_01'},
+    {x = 1496.21, y = 6322.42, z = 24.08, model = 'prop_arm_wrestle_01'},
+    {x = -2646.27, y = 6504.02, z = 24.58, model = 'bkr_prop_clubhouse_arm_wrestle_01a'},
+    {x = -2873.20, y = 6097.69, z = 7.28, model = 'prop_arm_wrestle_01'},
+    {x = -454.41, y = 7698.60, z = 6.14, model = 'prop_arm_wrestle_01'},
 }
